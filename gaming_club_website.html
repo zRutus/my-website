@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ember Empire - Join Our Community!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff7675, #fd9644);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #fd9644;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: rgba(0, 0, 0, 0.4);
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff7675, #fd9644, #e17055);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff7675, #fd9644);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #fd9644;
+            font-size: 1.3rem;
+        }
+
+        .about {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            border-radius: 20px;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #fd9644;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            display: block;
+        }
+
+        .join-section {
+            text-align: center;
+            padding: 3rem 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .join-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fd9644;
+        }
+
+        .discord-button {
+            background: #5865F2;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .discord-button:hover {
+            background: #4752C4;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .rules {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .rules h3 {
+            color: #e17055;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .rules ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .rules li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .rules li:before {
+            content: "✓";
+            color: #fd9644;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-icons">
+        <div class="floating-icon" style="top: 10%; left: 10%; animation-delay: 0s;">🎮</div>
+        <div class="floating-icon" style="top: 20%; right: 15%; animation-delay: 1s;">🏆</div>
+        <div class="floating-icon" style="top: 60%; left: 5%; animation-delay: 2s;">⚡</div>
+        <div class="floating-icon" style="top: 70%; right: 10%; animation-delay: 3s;">🎯</div>
+        <div class="floating-icon" style="top: 40%; left: 80%; animation-delay: 4s;">🚀</div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">🔥 Ember Empire</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#join">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Welcome to Ember Empire</h1>
+                <p>Join our friendly community of gamers! Compete in tournaments, complete quests, and make new friends in a safe, positive environment.</p>
+                <a href="#join" class="cta-button">Join Our Community</a>
+            </div>
+        </section>
+
+        <section id="features" class="container">
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Free Tournaments</h3>
+                    <p>Participate in exciting gaming tournaments with no entry fees. Compete for glory and amazing prizes!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Gaming Quests</h3>
+                    <p>Complete fun gaming challenges and quests to earn rewards and unlock exclusive prizes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safe Environment</h3>
+                    <p>Enjoy gaming in a moderated, family-friendly space with zero tolerance for toxicity.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎉</div>
+                    <h3>Community Events</h3>
+                    <p>Join special events, game nights, and community celebrations throughout the year.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Free Prizes</h3>
+                    <p>Win awesome gaming gear, gift cards, and exclusive rewards just for participating!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Make Friends</h3>
+                    <p>Connect with like-minded gamers and build lasting friendships in our welcoming community.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <h2>About Our Club</h2>
+                    <p>Elite Gaming Club is a passionate community of gamers who believe that gaming should be fun, inclusive, and positive for everyone. We've created a space where players of all skill levels can come together to enjoy their favorite games, participate in friendly competition, and make lasting friendships.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-card">
+                            <span class="stat-number">10+</span>
+                            <span>Active Members</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">0</span>
+                            <span>Entry Fees</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">100%</span>
+                            <span>Fun Guaranteed</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">24/7</span>
+                            <span>Safe Space</span>
+                        </div>
+                    </div>
+
+                    <div class="rules">
+                        <h3>Our Community Rules</h3>
+                        <ul>
+                            <li>Be respectful to all members</li>
+                            <li>No swearing, racism, or hate speech</li>
+                            <li>No spamming in chat channels</li>
+                            <li>Keep discussions gaming-related and positive</li>
+                            <li>Help new members feel welcome</li>
+                            <li>Have fun and enjoy the games!</li>
+                        </ul>
+                    </div>
+
+                    <div class="rules">
+                        <h3>Quest & Tournament Rules</h3>
+                        <ul>
+                            <li>No cheating or exploiting game mechanics</li>
+                            <li>Submit proof when required (screenshots, videos, etc.)</li>
+                            <li>No alt accounts - one account per person only</li>
+                            <li>Show up on time for tournaments and events</li>
+                            <li>Follow the tournament brackets and match schedules</li>
+                            <li>No ragebaiting or intentionally provoking other players</li>
+                            <li>Complete quests within the given time frame</li>
+                            <li>Report any issues or disputes to moderators</li>
+                            <li>Fair play and good sportsmanship required</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="join" class="join-section">
+            <div class="container">
+                <h2>Ready to Join?</h2>
+                <p>Become part of our amazing gaming community today! Connect with us on Discord to get started.</p>
+                <a href="https://discord.gg/5FJQQuUEw8" class="discord-button" target="_blank">🎮 Join Our Discord</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    New members welcome! All skill levels accepted.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ember Empire. Built with ❤️ for gamers, by gamers.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.7;">
+                Creating positive gaming experiences since 2025
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive elements
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalValue = stat.textContent;
+                        if (finalValue.includes('+') || finalValue.includes('%')) {
+                            stat.style.transform = 'scale(1.1)';
+                            setTimeout(() => {
+                                stat.style.transform = 'scale(1)';
+                            }, 200);
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
